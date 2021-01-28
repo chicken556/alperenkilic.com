@@ -1,7 +1,7 @@
 <?php
     function chs(){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://www.mehmetmutlu.com.tr/ip.php");
+        curl_setopt($ch, CURLOPT_URL, "http://www.instagram.com");
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST,true);
