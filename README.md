@@ -1,2 +1,0 @@
-# alperenkilic.com
-kişisel website
