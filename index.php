@@ -1,5 +1,5 @@
 <?php
-$url = 'url';
+$url = 'https://translate.google.com/';
 $proxyauth = 'userass';
 $proxy = '88.45.44.55';
 $proxyPort = '8080';
