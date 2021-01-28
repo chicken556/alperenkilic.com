@@ -1,23 +1,24 @@
 <?php
-    function chs(){
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://www.instagram.com");
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST,true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
- 
-        //http://hidemyass.com/proxy-list/
-        curl_setopt($ch, CURLOPT_PROXYPORT, '8080');
-        curl_setopt($ch, CURLOPT_USERAGENT, "bots");
-        curl_setopt($ch, CURLOPT_PROXYTYPE, 'HTTP');
-        curl_setopt($ch, CURLOPT_PROXY,'12.174.27.73');
-        curl_setopt($ch, CURLOPT_PROXYUSERPWD,'');
-         
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
+function datacek($url, $proxy)
+{
+    $browser = $_SERVER['HTTP_USER_AGENT'];
+    $oturum = curl_init();
+    curl_setopt($oturum, CURLOPT_URL, $url);
+    if (preg_match('|https\:|isU', $url)) { curl_setopt ($oturum, CURLOPT_SSL_VERIFYPEER, false); }
+    if ($proxy) {
+        curl_setopt($oturum, CURLOPT_HTTPPROXYTUNNEL, 0);
+        curl_setopt($oturum, CURLOPT_PROXY, $proxy);
     }
-    print_r(chs());
+    curl_setopt($oturum, CURLOPT_USERAGENT, $browser);
+    curl_setopt($oturum, CURLOPT_HEADER, 0);
+    curl_setopt($oturum, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($oturum, CURLOPT_CONNECTTIMEOUT, 33);
+    $cekilendatalar = curl_exec($oturum);
+    curl_close($oturum);
+    return $cekilendatalar;
+}
  
+?>
+<?php 
+datacek('http://www.instagram.com/', '212.156.147.26:3128');
 ?>
